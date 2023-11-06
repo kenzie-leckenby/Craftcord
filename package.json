@@ -1,0 +1,12 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "A discord bot that reads a .log file to output minecraft messages to discord and reads discord messages to send them in minecraft",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kenzie Leckenby",
+  "license": "ISC"
+}
