@@ -11,8 +11,8 @@ module.exports = {
             .setDescription('Check how many and who are on currently'))
     .addSubcommand(subcommand =>
         subcommand
-            .setName('status')
-            .setDescription('Check the server status')),
+            .setName('info')
+            .setDescription('Check the server info')),
     async execute(interaction) {
         if (interaction.options.getSubcommand() === 'players') {
             const playerInfo = await mcQuery.checkPlayerInfo();
@@ -24,13 +24,13 @@ module.exports = {
                     { name: 'Players', value: `${playerInfo.playersOnList}`}
                 )
             await interaction.reply({embeds: [playersEmbed], ephemeral: true });
-        } else if (interaction.options.getSubcommand() === 'status') {
+        } else if (interaction.options.getSubcommand() === 'info') {
             const status = await mcQuery.checkServerStatus();
 
             const statusEmbed = new EmbedBuilder()
                 .setColor('Blue')
                 .setTitle(status.motd)
-                .setDescription(status.currentVersion)
+                .setDescription(`Server Version: ${status.currentVersion}`)
             await interaction.reply({embeds: [statusEmbed], ephemeral: true });
         }
     },
