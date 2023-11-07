@@ -1,7 +1,9 @@
-const { Client, GatewayIntentBits, EmbedBuilder, Collection, Events} = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, AttachmentBuilder, Collection, Events} = require('discord.js');
 const { token, rconPort, rconPassword, channelID } = require('../config.json');
 const { mcRCON } = require('./queryAndRCON/mcRCON.js');
 const { LogReader } = require('./logFileParsing/logReader.js');
+const iconCompiler = require('./logFileParsing/achievementIconCompiler.js')
+const { achievements, backgrounds } = require('./logFileParsing/achievementIconURLs.json')
 const path = require('path');
 const fs = require('fs');
 
@@ -41,26 +43,62 @@ client.on(Events.ClientReady, () => {
         .setColor(borderColor)
         .setAuthor({ name: `${output.username} ${output.message}` })
     }
+
+    function achievementEmbed(borderColor, type) {
+      return new Promise(async (resolve) => {
+        const foundAchievement = achievements.find(achievement => achievement.name === output.message.substring(output.message.indexOf('[') + 1, output.message.indexOf(']')));
+        const backgroundImg = backgrounds.find(background => background.name === type).iconURL;
+        const achievementImg = foundAchievement.iconURL;
+
+        const imagePath = await iconCompiler.overlayImagesFromURL(backgroundImg, achievementImg);
+
+        console.log('Attachment Builder Created');
+        const attachment = new AttachmentBuilder(imagePath)
+
+        console.log('Embed Builder Created');
+        const newEmbed = new EmbedBuilder()
+          .setColor(borderColor)
+          .setTitle(foundAchievement.name)
+          .setAuthor({ name: `${output.username} ${output.message.substring(0, output.message.indexOf('[') - 1)}` })
+          .setDescription(foundAchievement.description)
+          .setThumbnail(`attachment://${path.basename(imagePath)}`)
+
+        console.log('Resolving new embed with attachment');
+        resolve({
+          embeds: [newEmbed],
+          files: [attachment]
+        });
+      });
+    }
     if (output.type === 'chat') {
       channel.send(`${output.username}: ${output.message}`)
     }
     else if (output.type === 'playerJoin') {
-      channel.send({ embeds: [messageEmbed('Green')]})
+      channel.send({ embeds: [messageEmbed('Green')]});
     }
     else if (output.type === 'playerLeave') {
-      channel.send({ embeds: [messageEmbed('Red')]})
+      channel.send({ embeds: [messageEmbed('Red')]});
     }
     else if (output.type === 'death') {
-      channel.send({ embeds: [messageEmbed('Red')]})
+      channel.send({ embeds: [messageEmbed('Red')]});
     }
     else if (output.type === 'advancement') {
-      channel.send({ embeds: [messageEmbed('Green')]})
+      (async () => {
+        const embedMsg = await achievementEmbed('Green', output.type);
+        channel.send(embedMsg);
+      })();
     }
     else if (output.type === 'goal') {
-      channel.send({ embeds: [messageEmbed('Green')]})
+      (async () => {
+        const embedMsg = await achievementEmbed('Green', output.type);
+        channel.send(embedMsg);
+      })();
     }
     else if (output.type === 'challenge') {
-      channel.send({ embeds: [messageEmbed('DarkPurple')]})
+      (async () => {
+        const embedMsg = await achievementEmbed('DarkPurple', output.type);
+        channel.send(embedMsg);
+      })();
     }
   })
 });
