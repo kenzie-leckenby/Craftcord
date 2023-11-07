@@ -1,81 +1,94 @@
-const { Client, IntentsBitField } = require('discord.js');
-const { token, filePath, rconPort, rconPassword, channelID } = require('../config.json')
-const Rcon = require('rcon');
+const { Client, GatewayIntentBits, EmbedBuilder, Collection, Events} = require('discord.js');
+const { token, rconPort, rconPassword, channelID } = require('../config.json');
+const { mcRCON } = require('./queryAndRCON/mcRCON.js');
+const { LogReader } = require('./logFileParsing/logReader.js');
+const path = require('path');
 const fs = require('fs');
-let lastMsgID = -1;
 
 const client = new Client({
   intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
   ],
 })
 
-// Connects the RCON with minecraft server hosted on local machine
-var conn = new Rcon('localhost', rconPort, rconPassword);
+client.commands = new Collection();
 
-conn.on('auth', function() {
-  console.log("Authenticated");
-}).on('response', function(str) {
-}).on('error', function(err) {
-  console.log("Error: " + err);
-}).on('end', function() {
-  console.log("Connection closed");
-  process.exit();
-});
+const commandsPath = path.join(__dirname, 'commands');
+const commandsFile = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-conn.connect();
-
-// Converts messages into the tellraw syntax minecraft uses
-function tellrawFormatter(messageBody, username = undefined) {
-  if (username === undefined) {
-    return `/tellraw @a ["", {"text":"[Discord]", "color":"blue"}, " ${messageBody}"]`
-  }
-  else {
-    return `/tellraw @a ["", {"text":"[Discord]", "color":"blue"}, " ${username}:" ," ${messageBody}"]`
+for (const file of commandsFile) {
+  const filePath = path.join(commandsPath, file);
+  const command = require(filePath);
+  if ('data' in command && 'execute' in command) {
+    client.commands.set(command.data.name, command);
+  } else {
+    console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
   }
 }
 
-// Print on start
-client.on('ready', (c) => {
-  console.log(`${c.user.username} is ready`);
-  const fileWatcher = fs.watch(`${filePath}src/latest_message.json`, event => {
-    if (event === 'change') {
-      fs.readFile(`${filePath}src/latest_message.json`, 'utf8', (err, data) => {
-        if (err) {
-          console.error('Error reading JSON file:', err);
-        } else {
-          try {
-            const channel = client.channels.cache.get(channelID);
-            const jsonData = JSON.parse(data);
-            if ((jsonData.message === 'left' || jsonData.message === 'joined') && jsonData.id != lastMsgID) {
-              jsonData.message === 'left' && channel.send(`${jsonData.username} left the game`)
-              jsonData.message === 'joined' && channel.send(`${jsonData.username} joined the game`)
-              lastMsgID = jsonData.id;
-            } else {
-              jsonData.id != lastMsgID && channel.send(`${jsonData.username}: ${jsonData.message}`);
-              lastMsgID = jsonData.id;
-            }
-          } catch (error) {
-            console.error('Error parsing JSON data:', error);
-          }
-        }
-      });
-    }
-  });
+const mcChat = new mcRCON(undefined, rconPort, rconPassword);
 
-  fileWatcher.on('error', (err) => {
-    console.error('File watcher error:', err);
-  });
+// Print on start
+client.on(Events.ClientReady, () => {
+  const logReader = new LogReader();
+  logReader.on('latestMessageChanged', (output) => {
+    const channel = client.channels.cache.get(channelID);
+    function messageEmbed(borderColor) {
+      return new EmbedBuilder()
+        .setColor(borderColor)
+        .setAuthor({ name: `${output.username} ${output.message}` })
+    }
+    if (output.type === 'chat') {
+      channel.send(`${output.username}: ${output.message}`)
+    }
+    else if (output.type === 'playerJoin') {
+      channel.send({ embeds: [messageEmbed('Green')]})
+    }
+    else if (output.type === 'playerLeave') {
+      channel.send({ embeds: [messageEmbed('Red')]})
+    }
+    else if (output.type === 'death') {
+      channel.send({ embeds: [messageEmbed('Red')]})
+    }
+    else if (output.type === 'advancement') {
+      channel.send({ embeds: [messageEmbed('Green')]})
+    }
+    else if (output.type === 'goal') {
+      channel.send({ embeds: [messageEmbed('Green')]})
+    }
+    else if (output.type === 'challenge') {
+      channel.send({ embeds: [messageEmbed('DarkPurple')]})
+    }
+  })
 });
 
 // When a user sends a message in chat
-client.on('messageCreate', (msg) => {
+client.on(Events.MessageCreate, (msg) => {
   if (msg.channel.id === channelID) {
-    msg.author.bot == false && conn.send(tellrawFormatter(msg.content, msg.author.displayName));
+    msg.author.bot == false && mcChat.sendMessage(msg.content, msg.author.displayName);
   }
+});
+
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = client.commands.get(interaction.commandName);
+
+	if (!command) return;
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		if (interaction.replied || interaction.deferred) {
+			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+		} else {
+			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		}
+	}
 });
 
 client.login(token);

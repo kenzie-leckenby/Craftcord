@@ -1,4 +1,5 @@
-const { SlashCommandBuilder } = require('discord.js')
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
+const mcQuery = require('../queryAndRCON/mcServerQuery.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -13,10 +14,24 @@ module.exports = {
             .setName('status')
             .setDescription('Check the server status')),
     async execute(interaction) {
-        if (interaction.options.getSubCommand() === 'players') {
-            // Query the server to find player info
-        } else if (interaction.options.getSubCommand() === 'status') {
-            // Query the server to check status
+        if (interaction.options.getSubcommand() === 'players') {
+            const playerInfo = await mcQuery.checkPlayerInfo();
+
+            const playersEmbed = new EmbedBuilder()
+                .setColor('Blue')
+                .addFields(
+                    { name: 'Player Count', value: `${playerInfo.numPlayersOn}/${playerInfo.maxPlayers}`},
+                    { name: 'Players', value: `${playerInfo.playersOnList}`}
+                )
+            await interaction.reply({embeds: [playersEmbed], ephemeral: true });
+        } else if (interaction.options.getSubcommand() === 'status') {
+            const status = await mcQuery.checkServerStatus();
+
+            const statusEmbed = new EmbedBuilder()
+                .setColor('Blue')
+                .setTitle(status.motd)
+                .setDescription(status.currentVersion)
+            await interaction.reply({embeds: [statusEmbed], ephemeral: true });
         }
     },
 };
