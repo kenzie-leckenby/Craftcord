@@ -2,98 +2,114 @@
     "achievements" : [
         {
             "name" : "Minecraft",
+            "minecraftTag" : "minecraft:story/root",
             "description" : "The heart and story of the game",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Grass_Block.png",
             "type" : "advancement"
         },
         {
             "name" : "Stone Age",
+            "minecraftTag" : "minecraft:story/mine_stone",
             "description" : "Mine Stone with your new Pickaxe",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Wooden_Pickaxe.png",
             "type" : "advancement"
         },
         {
             "name" : "Getting an Upgrade",
+            "minecraftTag" : "minecraft:story/upgrade_tools",
             "description" : "Construct a better Pickaxe",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Stone_Pickaxe.png",
             "type" : "advancement"
         },
         {
             "name" : "Acquire Hardware",
+            "minecraftTag" : "minecraft:story/smelt_iron",
             "description" : "Smelt an Iron Ingot",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Iron_Ingot.png",
             "type" : "advancement"
         },
         {
             "name" : "Suit Up",
+            "minecraftTag" : "minecraft:story/obtain_armor",
             "description" : "Protect yourself with a piece of iron armor",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Iron_Chestplate.png",
             "type" : "advancement"
         },
         {
             "name" : "Hot Stuff",
+            "minecraftTag" : "minecraft:story/lava_bucket",
             "description" : "Fill a Bucket with lava",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Lava_Bucket.png",
             "type" : "advancement"
         },
         {
             "name" : "Isn't It Iron Pick",
+            "minecraftTag" : "minecraft:story/iron_tools",
             "description" : "Upgrade your Pickaxe",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Iron_Pickaxe.png",
             "type" : "advancement"
         },
         {
             "name" : "Not Today, Thank You",
+            "minecraftTag" : "minecraft:story/deflect_arrow",
             "description" : "Deflect a projectile with a Shield",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Shield.png",
             "type" : "advancement"
         },
         {
             "name" : "Ice Bucket Challenge",
+            "minecraftTag" : "minecraft:story/form_obsidian",
             "description" : "Obtain a block of Obsidian",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Obsidian.png",
             "type" : "advancement"
         },
         {
             "name" : "Diamonds!",
+            "minecraftTag" : "minecraft:story/mine_diamond",
             "description" : "Acquire diamonds",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Diamond.png",
             "type" : "advancement"
         },
         {
             "name" : "We Need to Go Deeper",
+            "minecraftTag" : "minecraft:story/enter_the_nether",
             "description" : "Build, light and enter a Nether Portal",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Flint_and_Steel.png",
             "type" : "advancement"
         },
         {
             "name" : "Cover Me with Diamonds",
+            "minecraftTag" : "minecraft:story/shiny_gear",
             "description" : "Diamond armor saves lives",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Diamond_Chestplate.png",
             "type" : "advancement"
         },
         {
             "name" : "Enchanter",
+            "minecraftTag" : "minecraft:story/enchant_item",
             "description" : "Enchant an item at an Enchanting Table",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Enchanted_Book.gif",
             "type" : "advancement"
         },
         {
             "name" : "Zombie Doctor",
+            "minecraftTag" : "minecraft:story/cure_zombie_villager",
             "description" : "Weaken and then cure a Zombie Villager",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Golden_Apple.png?637e4",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Golden_Apple.png",
             "type" : "goal"
         },
         {
             "name" : "Eye Spy",
+            "minecraftTag" : "minecraft:story/follow_ender_eye",
             "description" : "Follow an Eye of Ender",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Eye_of_Ender.png?d24aa",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Eye_of_Ender.png",
             "type" : "advancement"
         },
         {
             "name" : "The End?",
+            "minecraftTag" : "minecraft:story/enter_the_end",
             "description" : "Enter the End Portal",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_End_Stone.png?ed341",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_End_Stone.png",
             "type" : "advancement"
         },
 
@@ -101,146 +117,170 @@
 
         {
             "name" : "Nether",
+            "minecraftTag" : "minecraft:nether/root",
             "description" : "Bring summer clothes",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Red_Nether_Bricks.png?9952e",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Red_Nether_Bricks.png",
             "type" : "advancement"
         },
         {
             "name" : "Return to Sender",
+            "minecraftTag" : "minecraft:nether/return_to_sender",
             "description" : "Destroy a Ghast with a fireball",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Fire_Charge.png?9df86",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Fire_Charge.png",
             "type" : "challenge"
         },
         {
             "name" : "Those Were the Days",
+            "minecraftTag" : "minecraft:nether/find_bastion",
             "description" : "Enter a Bastion Remnant",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Polished_Blackstone_Bricks.png?1f85b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Polished_Blackstone_Bricks.png",
             "type" : "advancement"
         },
         {
             "name" : "Hidden in the Depths",
+            "minecraftTag" : "minecraft:nether/obtain_ancient_debris",
             "description" : "Obtain Ancient Debris",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Ancient_Debris.png?7af74",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Ancient_Debris.png",
             "type" : "advancement"
         },
         {
             "name" : "Subspace Bubble",
+            "minecraftTag" : "minecraft:nether/fast_travel",
             "description" : "Use the Nether to travel 7 km in the Overworld",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Empty_Map.png?332c3",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Empty_Map.png",
             "type" : "challenge"
         },
         {
             "name" : "A Terrible Fortress",
+            "minecraftTag" : "minecraft:nether/find_fortress",
             "description" : "Break your way into a Nether Fortress",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Nether_Bricks.png?65d12",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Nether_Bricks.png",
             "type" : "advancement"
         },
         {
             "name" : "Who is Cutting Onions?",
+            "minecraftTag" : "minecraft:nether/obtain_crying_obsidian",
             "description" : "Obtain Crying Obsidian",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Crying_Obsidian.png?eb75b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Crying_Obsidian.png",
             "type" : "advancement"
         },
         {
             "name" : "Oh Shiny",
+            "minecraftTag" : "minecraft:nether/distract_piglin",
             "description" : "Distract Piglins with gold",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Gold_Ingot.png?cb854",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Gold_Ingot.png",
             "type" : "advancement"
         },
         {
             "name" : "This Boat Has Legs",
+            "minecraftTag" : "minecraft:nether/ride_strider",
             "description" : "Ride a Strider with a Warped Fungus on a Stick",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Warped_Fungus_on_a_Stick.png?3254f",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Warped_Fungus_on_a_Stick.png",
             "type" : "advancement"
         },
         {
             "name" : "Uneasy Alliance",
+            "minecraftTag" : "minecraft:nether/uneasy_alliance",
             "description" : "Rescue a Ghast from the Nether, bring it safely home to the Overworld... and then kill it",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Ghast_Tear.png?394c9",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Ghast_Tear.png",
             "type" : "challenge"
         },
         {
             "name" : "War Pigs",
+            "minecraftTag" : "minecraft:nether/loot_bastion",
             "description" : "Loot a Chest in a Bastion Remnant",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Chest.png?1cab7",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Chest.png",
             "type" : "advancement"
         },
         {
             "name" : "Country Lode, Take Me Home",
+            "minecraftTag" : "minecraft:nether/use_lodestone",
             "description" : "Use a Compass on a Lodestone",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Lodestone.png?e73c9",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Lodestone.png",
             "type" : "advancement"
         },
         {
             "name" : "Cover Me in Debris",
+            "minecraftTag" : "minecraft:nether/netherite_armor",
             "description" : "Get a full suit of Netherite armor",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Netherite_Chestplate.png?1b0d8",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Netherite_Chestplate.png",
             "type" : "challenge"
         },
         {
             "name" : "Spooky Scary Skeleton",
+            "minecraftTag" : "minecraft:nether/get_wither_skull",
             "description" : "Obtain a Wither Skeleton's skull",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Wither_Skeleton_Skull.png?80d3f",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Wither_Skeleton_Skull.png",
             "type" : "advancement"
         },
         {
             "name" : "Into Fire",
+            "minecraftTag" : "minecraft:nether/obtain_blaze_rod",
             "description" : "Relieve a Blaze of its rod",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Blaze_Rod.png?00856",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Blaze_Rod.png",
             "type" : "advancement"
         },
         {
             "name" : "Not Quite \"Nine\" Lives",
+            "minecraftTag" : "minecraft:nether/charge_respawn_anchor",
             "description" : "Charge a Respawn Anchor to the maximum",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Respawn_Anchor.png?ef7a4",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Respawn_Anchor.png",
             "type" : "advancement"
         },
         {
             "name" : "Feels Like Home",
+            "minecraftTag" : "minecraft:nether/ride_strider_in_overworld_lava",
             "description" : "Take a Strider for a loooong ride on a lava lake in the Overworld",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Warped_Fungus_on_a_Stick.png?3254f",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Warped_Fungus_on_a_Stick.png",
             "type" : "advancement"
         },
         {
             "name" : "Hot Tourist Destinations",
+            "minecraftTag" : "minecraft:nether/explore_nether",
             "description" : "Explore all Nether biomes",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Netherite_Boots.png?f5c33",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Netherite_Boots.png",
             "type" : "challenge"
         },
         {
             "name" : "Withering Heights",
+            "minecraftTag" : "minecraft:nether/summon_wither",
             "description" : "Summon the Wither",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Nether_Star.gif?14d30",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Nether_Star.gif",
             "type" : "advancement"
         },
         {
             "name" : "Local Brewery",
+            "minecraftTag" : "minecraft:nether/brew_potion",
             "description" : "Brew a Potion",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Uncraftable_Potion.png?d5ae4",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Uncraftable_Potion.png",
             "type" : "advancement"
         },
         {
             "name" : "Bring Home the Beacon",
+            "minecraftTag" : "minecraft:nether/create_beacon",
             "description" : "Construct and place a Beacon",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Beacon.png?05dc8",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Beacon.png",
             "type" : "advancement"
         },
         {
             "name" : "A Furious Cocktail",
+            "minecraftTag" : "minecraft:nether/all_potions",
             "description" : "Have every potion effect applied at the same time",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Milk_Bucket.png?686de",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Milk_Bucket.png",
             "type" : "challenge"
         },
         {
             "name" : "Beaconator",
+            "minecraftTag" : "minecraft:nether/create_full_beacon",
             "description" : "Bring a Beacon to full power",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Beacon.png?05dc8",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Beacon.png",
             "type" : "goal"
         },
         {
             "name" : "How Did We Get Here?",
+            "minecraftTag" : "minecraft:nether/all_effects",
             "description" : "Have every effect applied at the same time",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket.png?5693e",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket.png",
             "type" : "challenge"
         },
 
@@ -248,56 +288,65 @@
 
         {
             "name" : "The End",
+            "minecraftTag" : "minecraft:end/root",
             "description" : "Or the beginning?",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_End_Stone.png?ed341",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_End_Stone.png",
             "type" : "advancement"
         },
         {
             "name" : "Free the End",
+            "minecraftTag" : "minecraft:end/kill_dragon",
             "description" : "Good luck",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Dragon_Head.png?9a8cb",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Dragon_Head.png",
             "type" : "advancement"
         },
         {
             "name" : "The Next Generation",
+            "minecraftTag" : "minecraft:end/dragon_egg",
             "description" : "Hold the Dragon Egg",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Dragon_Egg.png?b6b74",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Dragon_Egg.png",
             "type" : "goal"
         },
         {
             "name" : "Remote Getaway",
+            "minecraftTag" : "minecraft:end/enter_end_gateway",
             "description" : "Escape the island",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Ender_Pearl.png?0933a",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Ender_Pearl.png",
             "type" : "advancement"
         },
         {
             "name" : "The End... Again...",
+            "minecraftTag" : "minecraft:end/respawn_dragon",
             "description" : "Respawn the Ender Dragon",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_End_Crystal.gif?3241e",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_End_Crystal.gif",
             "type" : "goal"
         },
         {
             "name" : "You Need a Mint",
+            "minecraftTag" : "minecraft:end/dragon_breath",
             "description" : "Collect Dragon's Breath in a Glass Bottle",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Dragon%27s_Breath.png?66142",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Dragon%27s_Breath.png",
             "type" : "goal"
         },
         {
             "name" : "The City at the End of the Game",
+            "minecraftTag" : "minecraft:end/find_end_city",
             "description" : "Go on in, what could happen?",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Purpur_Block.png?f13e9",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Purpur_Block.png",
             "type" : "advancement"
         },
         {
             "name" : "Sky's the Limit",
+            "minecraftTag" : "minecraft:end/elytra",
             "description" : "Find Elytra",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Elytra.png?40c07",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Elytra.png",
             "type" : "goal"
         },
         {
             "name" : "Great View From Up Here",
+            "minecraftTag" : "minecraft:end/levitate",
             "description" : "Levitate up 50 blocks from the attacks of a Shulker",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Shulker_Shell.png?b1594",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Shulker_Shell.png",
             "type" : "challenge"
         },
 
@@ -305,212 +354,247 @@
 
         {
             "name" : "Adventure",
+            "minecraftTag" : "minecraft:adventure/root",
             "description" : "Adventure, exploration and combat",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Empty_Map.png?332c3",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Empty_Map.png",
             "type" : "advancement"
         },
         {
             "name" : "Voluntary Exile",
+            "minecraftTag" : "minecraft:adventure/voluntary_exile",
             "description" : "Kill a raid captain. Maybe consider staying away from villages for the time being...",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Ominous_Banner.png?6fa92",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Ominous_Banner.png",
             "type" : "advancement"
         },
         {
             "name" : "Is It a Bird?",
+            "minecraftTag" : "minecraft:adventure/spyglass_at_parrot",
             "description" : "Look at a Parrot through a Spyglass",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Spyglass.png?3cfb2",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Spyglass.png",
             "type" : "advancement"
         },
         {
             "name" : "Monster Hunter",
+            "minecraftTag" : "minecraft:adventure/kill_a_mob",
             "description" : "Kill any hostile monster",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Iron_Sword.png?563c5",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Iron_Sword.png",
             "type" : "advancement"
         },
         {
             "name" : "The Power of Books",
+            "minecraftTag" : "minecraft:adventure/read_power_of_chiseled_bookshelf",
             "description" : "Read the power signal of a Chiseled Bookshelf using a Comparator",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Chiseled_Bookshelf.png?9c667",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Chiseled_Bookshelf.png",
             "type" : "advancement"
         },
         {
             "name" : "What a Deal!",
+            "minecraftTag" : "minecraft:adventure/trade",
             "description" : "Successfully trade with a Villager",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Emerald.png?39910",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Emerald.png",
             "type" : "advancement"
         },
         {
             "name" : "Crafting a New Look",
+            "minecraftTag" : "minecraft:adventure/trim_with_any_armor_pattern",
             "description" : "Craft a trimmed armor at a Smithing Table",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Dune_Armor_Trim.png?b4d68",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Dune_Armor_Trim.png",
             "type" : "advancement"
         },
         {
             "name" : "Sticky Situation",
+            "minecraftTag" : "minecraft:adventure/honey_block_slide",
             "description" : "Jump into a Honey Block to break your fall",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Honey_Block.png?f9137",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Honey_Block.png",
             "type" : "advancement"
         },
         {
             "name" : "Ol' Betsy",
+            "minecraftTag" : "minecraft:adventure/ol_betsy",
             "description" : "Shoot a Crossbow",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png?3188b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png",
             "type" : "advancement"
         },
         {
             "name" : "Surge Protector",
+            "minecraftTag" : "minecraft:adventure/lightning_rod_with_villager_no_fire",
             "description" : "Protect a Villager from an undesired shock without starting a fire",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Lightning_Rod.png?a82c9",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Lightning_Rod.png",
             "type" : "advancement"
         },
         {
             "name" : "Caves & Cliffs",
+            "minecraftTag" : "minecraft:adventure/fall_from_world_height",
             "description" : "Free fall from the top of the world (build limit) to the bottom of the world and survive",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Water_Bucket.png?a0466",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Water_Bucket.png",
             "type" : "advancement"
         },
         {
             "name" : "Respecting the Remnants",
+            "minecraftTag" : "minecraft:adventure/salvage_sherd",
             "description" : "Brush a Suspicious block to obtain a Pottery Sherd",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Brush.png?afa3f",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Brush.png",
             "type" : "advancement"
         },
         {
             "name" : "Sneak 100",
+            "minecraftTag" : "minecraft:adventure/avoid_vibration",
             "description" : "Sneak near a Sculk Sensor or Warden to prevent it from detecting you",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Sculk_Sensor.gif?4dcc2",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Sculk_Sensor.gif",
             "type" : "advancement"
         },
         {
             "name" : "Sweet Dreams",
+            "minecraftTag" : "minecraft:adventure/sleep_in_bed",
             "description" : "Sleep in a Bed to change your respawn point",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Red_Bed.png?aaddb",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Red_Bed.png",
             "type" : "advancement"
         },
         {
             "name" : "Hero of the Village",
+            "minecraftTag" : "minecraft:adventure/hero_of_the_village",
             "description" : "Successfully defend a village from a raid",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Ominous_Banner.png?6fa92",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Ominous_Banner.png",
             "type" : "challenge"
         },
         {
             "name" : "Is It a Balloon?",
+            "minecraftTag" : "minecraft:adventure/spyglass_at_ghast",
             "description" : "Look at a Ghast through a Spyglass",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Spyglass.png?3cfb2",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Spyglass.png",
             "type" : "advancement"
         },
         {
             "name" : "A Throwaway Joke",
+            "minecraftTag" : "minecraft:adventure/throw_trident",
             "description" : "Throw a Trident at something. Note: Throwing away your only weapon is not a good idea.",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Trident.png?8b726",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Trident.png",
             "type" : "advancement"
         },
         {
             "name" : "It Spreads",
+            "minecraftTag" : "minecraft:adventure/kill_mob_near_sculk_catalyst",
             "description" : "Kill a mob near a Sculk Catalyst",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Sculk_Catalyst.png?85e14",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Sculk_Catalyst.png",
             "type" : "challenge"
         },
         {
             "name" : "Take Aim",
+            "minecraftTag" : "minecraft:adventure/shoot_arrow",
             "description" : "Shoot something with an Arrow",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Bow.png?66f96",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Bow.png",
             "type" : "advancement"
         },
         {
             "name" : "Monsters Hunted",
+            "minecraftTag" : "minecraft:adventure/kill_all_mobs",
             "description" : "Kill one of every hostile monster",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Diamond_Sword.png?0e1c0",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Diamond_Sword.png",
             "type" : "challenge"
         },
         {
             "name" : "Postmortal",
+            "minecraftTag" : "minecraft:adventure/totem_of_undying",
             "description" : "Use a Totem of Undying to cheat death",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Totem_of_Undying.png?ad7ee",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Totem_of_Undying.png",
             "type" : "goal"
         },
         {
             "name" : "Hired Help",
+            "minecraftTag" : "minecraft:adventure/summon_iron_golem",
             "description" : "Summon an Iron Golem to help defend a village",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Carved_Pumpkin.png?e630d",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Carved_Pumpkin.png",
             "type" : "goal"
         },
         {
             "name" : "Star Trader",
+            "minecraftTag" : "minecraft:adventure/trade_at_world_height",
             "description" : "Trade with a Villager at the build height limit",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Emerald.png?39910",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Emerald.png",
             "type" : "advancement"
         },
         {
             "name" : "Smithing with Style",
+            "minecraftTag" : "minecraft:adventure/trim_with_all_exclusive_armor_patterns",
             "description" : "Apply these smithing templates at least once: Spire, Snout, Rib, Ward, Silence, Vex, Tide, Wayfinder",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Silence_Armor_Trim.png?ca758",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Silence_Armor_Trim.png",
             "type" : "challenge"
         },
         {
             "name" : "Two Birds, One Arrow",
+            "minecraftTag" : "minecraft:adventure/two_birds_one_arrow",
             "description" : "Kill two Phantoms with a piercing Arrow",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png?3188b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png",
             "type" : "challenge"
         },
         {
             "name" : "Who's the Pillager Now?",
+            "minecraftTag" : "minecraft:adventure/whos_the_pillager_now",
             "description" : "Give a Pillager a taste of their own medicine",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png?3188b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png",
             "type" : "advancement"
         },
         {
             "name" : "Arbalistic",
+            "minecraftTag" : "minecraft:adventure/arbalistic",
             "description" : "Kill five unique mobs with one crossbow shot",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png?3188b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Crossbow.png",
             "type" : "challenge"
         },
         {
             "name" : "Careful Restoration",
+            "minecraftTag" : "minecraft:adventure/craft_decorated_pot_using_only_sherds",
             "description" : "Make a Decorated Pot out of 4 Pottery Sherds",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Decorated_Pot.png?c2fd1",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Decorated_Pot.png",
             "type" : "advancement"
         },
         {
             "name" : "Adventuring Time",
+            "minecraftTag" : "minecraft:adventure/adventuring_time",
             "description" : "Discover every biome",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Diamond_Boots.png?b9292",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Diamond_Boots.png",
             "type" : "challenge"
         },
         {
             "name" : "Sound of Music",
+            "minecraftTag" : "minecraft:adventure/play_jukebox_in_meadows",
             "description" : "Make the Meadows come alive with the sound of music from a Jukebox",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Jukebox.png?20aad",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Jukebox.png",
             "type" : "advancement"
         },
         {
             "name" : "Light as a Rabbit",
+            "minecraftTag" : "minecraft:adventure/walk_on_powder_snow_with_leather_boots",
             "description" : "Walk on Powder Snow... without sinking in it",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Leather_Boots.png?50d5b",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Leather_Boots.png",
             "type" : "advancement"
         },
         {
             "name" : "Is It a Plane?",
+            "minecraftTag" : "minecraft:adventure/spyglass_at_dragon",
             "description" : "Look at the Ender Dragon through a Spyglass",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Spyglass.png?3cfb2",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Spyglass.png",
             "type" : "advancement"
         },
         {
             "name" : "Very Very Frightening",
+            "minecraftTag" : "minecraft:adventure/very_very_frightening",
             "description" : "Strike a Villager with lightning",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Trident.png?8b726",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Trident.png",
             "type" : "advancement"
         },
         {
             "name" : "Sniper Duel",
+            "minecraftTag" : "minecraft:adventure/sniper_duel",
             "description" : "Kill a Skeleton from at least 50 meters away",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Arrow.png?243fa",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Arrow.png",
             "type" : "challenge"
         },
         {
             "name" : "Bullseye",
+            "minecraftTag" : "minecraft:adventure/bullseye",
             "description" : "Hit the bullseye of a Target block from at least 30 meters away",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Target.png?c4e33",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Target.png",
             "type" : "challenge"
         },
 
@@ -518,158 +602,184 @@
 
         {
             "name" : "Husbandry",
+            "minecraftTag" : "minecraft:husbandry/root",
             "description" : "The world is full of friends and food",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Hay_Bale.png?85228",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Hay_Bale.png",
             "type" : "advancement"
         },
         {
             "name" : "Bee Our Guest",
+            "minecraftTag" : "minecraft:husbandry/safely_harvest_honey",
             "description" : "Use a Campfire to collect Honey from a Beehive using a Glass Bottle without aggravating the Bees",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Honey_Bottle.png?00989",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Honey_Bottle.png",
             "type" : "advancement"
         },
         {
             "name" : "The Parrots and the Bats",
+            "minecraftTag" : "minecraft:husbandry/breed_an_animal",
             "description" : "Breed two animals together",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Wheat.png?09002",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Wheat.png",
             "type" : "advancement"
         },
         {
             "name" : "You've Got a Friend in Me",
+            "minecraftTag" : "minecraft:husbandry/allay_deliver_item_to_player",
             "description" : "Have an Allay deliver items to you",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Cookie.png?5bae6",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Cookie.png",
             "type" : "advancement"
         },
         {
             "name" : "Whatever Floats Your Goat!",
+            "minecraftTag" : "minecraft:husbandry/ride_a_boat_with_a_goat",
             "description" : "Get in a Boat and float with a Goat",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Oak_Boat.png?486af",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Oak_Boat.png",
             "type" : "advancement"
         },
         {
             "name" : "Best Friends Forever",
+            "minecraftTag" : "minecraft:husbandry/tame_an_animal",
             "description" : "Tame an animal",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Lead.png?fce21",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Lead.png",
             "type" : "advancement"
         },
         {
             "name" : "Glow and Behold!",
+            "minecraftTag" : "minecraft:husbandry/make_a_sign_glow",
             "description" : "Make the text of any kind of sign glow",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Glow_Ink_Sac.png?327c4",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Glow_Ink_Sac.png",
             "type" : "advancement"
         },
         {
             "name" : "Fishy Business",
+            "minecraftTag" : "minecraft:husbandry/fishy_business",
             "description" : "Catch a fish",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Fishing_Rod.png?ae445",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Fishing_Rod.png",
             "type" : "advancement"
         },
         {
             "name" : "Total Beelocation",
+            "minecraftTag" : "minecraft:husbandry/silk_touch_nest",
             "description" : "Move a Bee Nest, with 3 Bees inside, using Silk Touch",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Bee_Nest.png?3c007",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Bee_Nest.png",
             "type" : "advancement"
         },
         {
             "name" : "Bukkit Bukkit",
+            "minecraftTag" : "minecraft:husbandry/tadpole_in_a_bucket",
             "description" : "Catch a Tadpole in a Bucket",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Tadpole.png?d7833",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Tadpole.png",
             "type" : "advancement"
         },
         {
             "name" : "Smells Interesting",
+            "minecraftTag" : "minecraft:husbandry/obtain_sniffer_egg",
             "description" : "Obtain a Sniffer Egg",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Sniffer_Egg.png?0add6",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Sniffer_Egg.png",
             "type" : "advancement"
         },
         {
             "name" : "A Seedy Place",
+            "minecraftTag" : "minecraft:husbandry/plant_seed",
             "description" : "Plant a seed and watch it grow",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Wheat.png?09002",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Wheat.png",
             "type" : "advancement"
         },
         {
             "name" : "Wax On",
+            "minecraftTag" : "minecraft:husbandry/wax_on",
             "description" : "Apply Honeycomb to a Copper block!",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Honeycomb.png?8095a",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Honeycomb.png",
             "type" : "advancement"
         },
         {
             "name" : "Two by Two",
+            "minecraftTag" : "minecraft:husbandry/bred_all_animals",
             "description" : "Breed all the animals!",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Golden_Carrot.png?ad4eb",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Golden_Carrot.png",
             "type" : "challenge"
         },
         {
             "name" : "Birthday Song",
+            "minecraftTag" : "minecraft:husbandry/allay_deliver_cake_to_note_block",
             "description" : "Have an Allay drop a Cake at a Note Block",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Note_Block.png?a3073",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Note_Block.png",
             "type" : "advancement"
         },
         {
             "name" : "A Complete Catalogue",
+            "minecraftTag" : "minecraft:husbandry/complete_catalogue",
             "description" : "Tame all Cat variants!",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Raw_Cod.png?d2bf9",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Raw_Cod.png",
             "type" : "challenge"
         },
         {
             "name" : "Tactical Fishing",
+            "minecraftTag" : "minecraft:husbandry/tactical_fishing",
             "description" : "Catch a Fish... without a Fishing Rod!",
             "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Pufferfish.png",
             "type" : "advancement"
         },
         {
             "name" : "When the Squad Hops into Town",
+            "minecraftTag" : "minecraft:husbandry/leash_all_frog_variants",
             "description" : "Get each Frog variant on a Lead",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Lead.png?fce21",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Lead.png",
             "type" : "advancement"
         },
         {
             "name" : "Little Sniffs",
+            "minecraftTag" : "minecraft:husbandry/feed_snifflet",
             "description" : "Feed a Snifflet",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Torchflower_Seeds.png?a3745",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Torchflower_Seeds.png",
             "type" : "advancement"
         },
         {
             "name" : "A Balanced Diet",
+            "minecraftTag" : "minecraft:husbandry/balanced_diet",
             "description" : "Eat everything that is edible, even if it's not good for you",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Apple.png?e002e",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Apple.png",
             "type" : "challenge"
         },
         {
             "name" : "Serious Dedication",
+            "minecraftTag" : "minecraft:husbandry/obtain_netherite_hoe",
             "description" : "Use a Netherite Ingot to upgrade a Hoe, and then reevaluate your life choices",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Netherite_Hoe.png?38238",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Netherite_Hoe.png",
             "type" : "challenge"
         },
         {
             "name" : "Wax Off",
+            "minecraftTag" : "minecraft:husbandry/wax_off",
             "description" : "Scrape Wax off of a Copper block!",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Stone_Axe.png?6f5e2",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Stone_Axe.png",
             "type" : "advancement"
         },
         {
             "name" : "The Cutest Predator",
+            "minecraftTag" : "minecraft:husbandry/axolotl_in_a_bucket",
             "description" : "Catch an Axolotl in a Bucket",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Axolotl.png?a0aef",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Axolotl.png",
             "type" : "advancement"
         },
         {
             "name" : "With Our Powers Combined!",
+            "minecraftTag" : "minecraft:husbandry/froglights",
             "description" : "Have all Froglights in your inventory",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Verdant_Froglight.png?81257",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Verdant_Froglight.png",
             "type" : "challenge"
         },
         {
             "name" : "Planting the Past",
+            "minecraftTag" : "minecraft:husbandry/plant_any_sniffer_seed",
             "description" : "Plant any Sniffer seed",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Pitcher_Pod.png?8f208",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Pitcher_Pod.png",
             "type" : "advancement"
         },
         {
             "name" : "The Healing Power of Friendship!",
+            "minecraftTag" : "minecraft:husbandry/kill_axolotl_target",
             "description" : "Team up with an axolotl and win a fight",
-            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Tropical_Fish.png?61b50",
+            "iconURL" : "https://minecraft.wiki/images/Invicon_Bucket_of_Tropical_Fish.png",
             "type" : "advancement"
         }
     ],
@@ -683,11 +793,11 @@
         },
         {
             "name" : "goal",
-            "iconURL" : "https://minecraft.wiki/images/Advancement-oval-raw.png?67998"
+            "iconURL" : "https://minecraft.wiki/images/Advancement-oval-raw.png"
         },
         {
             "name" : "challenge",
-            "iconURL" : "https://minecraft.wiki/images/Advancement-fancy-raw.png?a6443"
+            "iconURL" : "https://minecraft.wiki/images/Advancement-fancy-raw.png"
         }
     ]
 }

@@ -1,5 +1,5 @@
 const { latestLogFilePath } = require('../../config.json');
-const { vanillaDeathMessages } = require('./knownDeathMessages.json');
+const { vanillaDeathMessages } = require('../embedBuilders/knownDeathMessages.json');
 const EventEmitter = require('events');
 const fs = require('fs');  // Remove the destructuring
 const readline = require('readline');  // Remove the destructuring
@@ -45,13 +45,15 @@ class LogReader extends EventEmitter {
                     }
                 }
 
+                // !TODO Potentially Change Output Objects to have {author: "", body: "", type: ""}
+
                 // Checks if it is a chat message
                 if (lastLine.indexOf('<') != -1) {
                     const username = lastLine.substring(lastLine.indexOf('<') + 1, lastLine.indexOf('>'));
                     const message = lastLine.substring(lastLine.indexOf('>') + 1);
                     output = {
                         username: username,
-                        message: message,
+                        body: message,
                         type: "chat"
                     };
                     this.emit('latestMessageChanged', output);  // Emit the event with the output
@@ -64,7 +66,7 @@ class LogReader extends EventEmitter {
                     const message = extractedData[2];
                     output = {
                         username: username,
-                        message: message,
+                        body: message,
                         type: "playerJoin"
                     };
                     this.emit('latestMessageChanged', output);  // Emit the event with the output
@@ -75,7 +77,7 @@ class LogReader extends EventEmitter {
                     const message = extractedData[2];
                     output = {
                         username: username,
-                        message: message,
+                        body: message,
                         type: "playerLeave"
                     };
                     this.emit('latestMessageChanged', output);  // Emit the event with the output
@@ -88,7 +90,7 @@ class LogReader extends EventEmitter {
                     const message = extractedData[2];
                     output = {
                         username: username,
-                        message: message,
+                        body: message,
                         type: "death"
                     };
                     this.emit('latestMessageChanged', output);  // Emit the event with the output
@@ -102,7 +104,7 @@ class LogReader extends EventEmitter {
                     const type = lastLine.indexOf('advancement') != -1 ? 'advancement' : (lastLine.indexOf('challenge') != -1 ? 'challenge' : 'goal');  // Fix the type condition
                     output = {
                         username: username,
-                        message: message,
+                        body: message,
                         type: type
                     };
                     this.emit('latestMessageChanged', output);  // Emit the event with the output
