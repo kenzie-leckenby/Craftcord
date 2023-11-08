@@ -21,7 +21,7 @@ module.exports = {
                 .setColor('Blue')
                 .addFields(
                     { name: 'Player Count', value: `${playerInfo.numPlayersOn}/${playerInfo.maxPlayers}`},
-                    { name: 'Players', value: `\`\`\`${playerInfo.playersOnList.join('\`\`\` \`\`\`')}\`\`\``}
+                    { name: 'Players', value: `${playerInfo.playersOnList.join(', ')}`}
                 )
             await interaction.reply({embeds: [playersEmbed], ephemeral: true });
         } else if (interaction.options.getSubcommand() === 'info') {
