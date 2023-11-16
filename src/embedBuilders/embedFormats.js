@@ -38,7 +38,7 @@ function achievement(message) {
       const newEmbed = new EmbedBuilder()
         .setColor(borderColor)
         .setTitle(foundAchievement.name)
-        .setAuthor({ name: `${message.body} ${message.body.substring(0, message.body.indexOf('[') - 1)}` })
+        .setAuthor({ name: `${message.username} ${message.body.substring(0, message.body.indexOf('[') - 1)}` })
         .setDescription(foundAchievement.description)
         .setThumbnail(`attachment://${path.basename(imagePath)}`)
 

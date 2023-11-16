@@ -10,10 +10,19 @@ const options = {
 function checkServerStatus() {
     return new Promise((resolve, reject) => {
         const outputObj = {}
-        util.queryFull(serverIP, serverPort, options)
+        util.status(serverIP, serverPort, options)
             .then(result => {
+                let playersList = [];
+                result.players.sample != null && result.players.sample.forEach(element => {
+                    playersList.push(element.name)
+                });
+
                 outputObj.motd = result.motd.clean;
-                outputObj.currentVersion  = result.version;
+                outputObj.currentVersion = result.version.name;
+                outputObj.maxPlayers = result.players.max;
+                outputObj.online = result.players.online;
+                outputObj.playersOnList = result.players.online > 0 ? playersList.join(', ') : 'No Players On';
+                outputObj.icon = result.favicon;
                 resolve(outputObj);
             })
             .catch(error => {
@@ -23,24 +32,6 @@ function checkServerStatus() {
     })
 }
 
-function checkPlayerInfo() {
-    return new Promise((resolve, reject) => {
-        const outputObj = {};
-        util.queryFull(serverIP, serverPort, options)
-            .then(result => {
-                outputObj.numPlayersOn = result.players.online;
-                outputObj.maxPlayers = result.players.max;
-                outputObj.playersOnList = result.players.list.length === 0 ? 'No Players On' : result.players.list;
-                resolve(outputObj);
-            })
-            .catch(error => {
-                console.error(error)
-                reject(error)
-            });
-    });
-}
-
 module.exports = {
     checkServerStatus,
-    checkPlayerInfo,
 };

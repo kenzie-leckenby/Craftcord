@@ -1,8 +1,11 @@
-const { latestLogFilePath } = require('../../config.json');
+const { serverPath } = require('../../config.json');
 const { vanillaDeathMessages } = require('../embedBuilders/knownDeathMessages.json');
 const EventEmitter = require('events');
 const fs = require('fs');  // Remove the destructuring
 const readline = require('readline');  // Remove the destructuring
+const path = require('path');
+
+const logFilePath = path.join(serverPath, 'logs/latest.log');
 
 class LogReader extends EventEmitter {
     constructor() {
@@ -16,7 +19,7 @@ class LogReader extends EventEmitter {
         let lastLine = '';
 
         const readLineBeforeLast = () => {
-            const fileStream = fs.createReadStream(latestLogFilePath);
+            const fileStream = fs.createReadStream(logFilePath);
             const readLine = readline.createInterface({
                 input: fileStream,
                 crlfDelay: Infinity,
@@ -102,6 +105,7 @@ class LogReader extends EventEmitter {
                     const username = extractedData[1];
                     const message = extractedData[2];
                     const type = lastLine.indexOf('advancement') != -1 ? 'advancement' : (lastLine.indexOf('challenge') != -1 ? 'challenge' : 'goal');  // Fix the type condition
+                    console.log(`Extracted Data: ${extractedData[1]} username: ${username}`)
                     output = {
                         username: username,
                         body: message,
