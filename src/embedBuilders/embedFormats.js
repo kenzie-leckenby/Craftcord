@@ -28,7 +28,6 @@ function achievement(message) {
       const backgroundImg = backgrounds.find(background => background.name === message.type).iconURL;
       const achievementImg = foundAchievement.iconURL;
 
-
       const imagePath = await iconCompiler.overlayImagesFromURL(backgroundImg, achievementImg);
 
       const attachment = new AttachmentBuilder(imagePath)
