@@ -23,7 +23,7 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
             });
             gif.writeHeader();
 
-            foregroundGifObject.frames.forEach(async (frame, index) => {
+            foregroundGifObject.frames.forEach(async frame => {
                 // Create a new canvas
                 const canvas = createCanvas(52, 52);
                 const ctx = canvas.getContext('2d');
@@ -37,9 +37,6 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
                 ctx.putImageData(foregroundImageData, 10, 10);
                 gif.setTransparent('ffffff');
                 gif.addFrame(ctx.getImageData(0, 0, 52, 52).data, frame.timeCode);
-
-                const outImage = canvas.toDataURL();
-                //console.log(outImage);
             });
 
             gif.finish()
