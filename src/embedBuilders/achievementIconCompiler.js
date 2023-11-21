@@ -5,11 +5,18 @@ const GifEncoder = require('gif-encoder')
 const fetch = require('node-fetch');
 const path = require('path');
 
-// Returns a data URI
+/**
+ * @param backgroundImageUrl accepts any image file
+ * @param foregroundImageUrl accepts either any image file or .gif
+ * ! Though only .png's have been tested at the moment
+ * ! Gif's currently do not fully work so do not reference this function
+ * @returns a data URI containing the file as either a .png or .gif
+ */
 async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
+
     // Handles animated achievement icons
     if (foregroundImageUrl.indexOf('gif') != -1) {
-        // [TODO] Update code to remove the use of async in a promise statement
+        // ! Update code to remove the use of async in a promise statement
         return new Promise (async (resolve, reject) => {
             // Fetches and loads the background then the foreground image
             const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {reject(new Error(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`)); return;}
@@ -34,6 +41,7 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
 
                 // Convert Pixel Data to Image Data
                 const foregroundImageData = new ImageData(frame.data, foregroundGifObject.width, foregroundGifObject.height);
+                //console.log(foregroundImageData);
                 ctx.putImageData(foregroundImageData, 10, 10);
                 gif.setTransparent('ffffff');
                 gif.addFrame(ctx.getImageData(0, 0, 52, 52).data, frame.timeCode);
@@ -54,7 +62,7 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
         const ctx = canvas.getContext('2d');
         ctx.imageSmoothingEnabled = false;
 
-        // [TODO] Update code to remove the use of async in a promise statement
+        // ! Update code to remove the use of async in a promise statement
         return new Promise (async (resolve, reject) => {
             // Fetches and loads the background then the foreground image
             const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {reject(new Error(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`)); return;}
@@ -63,7 +71,7 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
             const foregroundImage = await loadImage(await foregroundImageFetch.buffer());
 
             // Draws the images to the canvas
-            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+            // ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
             ctx.drawImage(foregroundImage, 10, 10, 32, 32);
 
             // Outputs the resulting image
@@ -73,10 +81,6 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
     }
 }
 
-async function test() {
-    console.log(await testOverlay('https://minecraft.wiki/images/Advancement-plain-raw.png', 'https://minecraft.wiki/images/Invicon_Enchanted_Book.gif'));
-}
-//test();
 
 async function overlayImagesFromURL(inputImage1URL, inputImage2URL) {
     const outputImagePath = path.join(__dirname, 'tempImg.png'); // Specify the file path
