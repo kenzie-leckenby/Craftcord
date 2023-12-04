@@ -1,9 +1,14 @@
+/**
+ * ! Dependencies
+ * * canvas
+ * * node-fetch
+ */
 const { createCanvas, loadImage, ImageData } = require('canvas');
-const fs = require('fs');
-const decodeGif = require('decode-gif');
+const fs = require('fs'); // ! Will be removed when the new function works
+const { decodeGif, decodeFrame } = require('./gifFunctions.js')
 const GifEncoder = require('gif-encoder')
 const fetch = require('node-fetch');
-const path = require('path');
+const path = require('path'); // ! Will be removed when the new function works
 
 /**
  * @param backgroundImageUrl accepts any image file
@@ -13,7 +18,6 @@ const path = require('path');
  * @returns a data URI containing the file as either a .png or .gif
  */
 async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
-
     // Handles animated achievement icons
     if (foregroundImageUrl.indexOf('gif') != -1) {
         // ! Update code to remove the use of async in a promise statement
@@ -26,25 +30,35 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
             const foregroundGifObject = decodeGif(await foregroundGifFetch.buffer());
 
             let gif = new GifEncoder(52, 52, {
-                highWaterMark: 5 * 1024 * 1024
+                highWaterMark: 5 * 1024 * 1024 // Sets the buffer size to 5 mbs
             });
+            gif.setDispose(2);
+
             gif.writeHeader();
 
             foregroundGifObject.frames.forEach(async frame => {
                 // Create a new canvas
                 const canvas = createCanvas(52, 52);
-                const ctx = canvas.getContext('2d');
+                const ctx = canvas.getContext('2d', { alpha: true });
                 ctx.imageSmoothingEnabled = false;
 
-                // Draw background
-                ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+                // Create a temp canvas for the foreground
+                const foregroundCanvas = createCanvas(foregroundGifObject.width, foregroundGifObject.height);
+                const foregroundctx = foregroundCanvas.getContext('2d', { alpha: true });
 
                 // Convert Pixel Data to Image Data
-                const foregroundImageData = new ImageData(frame.data, foregroundGifObject.width, foregroundGifObject.height);
-                //console.log(foregroundImageData);
-                ctx.putImageData(foregroundImageData, 10, 10);
-                gif.setTransparent('ffffff');
-                gif.addFrame(ctx.getImageData(0, 0, 52, 52).data, frame.timeCode);
+                let foregroundImageData = foregroundctx.createImageData(foregroundGifObject.width, foregroundGifObject.height);
+                foregroundImageData.data.set(frame.patch);
+
+                // Draw foreground
+                foregroundctx.putImageData(foregroundImageData, 0, 0);
+
+                // Draw background and foreground
+                ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+                ctx.drawImage(foregroundCanvas, 10, 10, 32, 32);
+
+                // Add the compiled image to the output gif
+                gif.addFrame(ctx.getImageData(0, 0, 52, 52).data, frame.delay);
             });
 
             gif.finish()
@@ -71,7 +85,7 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
             const foregroundImage = await loadImage(await foregroundImageFetch.buffer());
 
             // Draws the images to the canvas
-            // ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
             ctx.drawImage(foregroundImage, 10, 10, 32, 32);
 
             // Outputs the resulting image
@@ -80,6 +94,42 @@ async function testOverlay(backgroundImageUrl, foregroundImageUrl) {
         })
     }
 }
+
+async function gifFrameTest(backgroundImageUrl, foregroundImageUrl, frameNum) {
+
+    return new Promise (async (resolve, reject) => {
+        // Fetches and loads the background then the foreground image
+        const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {reject(new Error(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`)); return;}
+        const backgroundImage = await loadImage(await backgroundImageFetch.buffer());
+
+        const foregroundGifFetch = await fetch(foregroundImageUrl); !foregroundGifFetch.ok && reject(new Error(`Failed to fetch the foreground image: ${foregroundGifFetch.statusText}`));
+        const foregroundGifObject = decodeFrame(await foregroundGifFetch.buffer(), frameNum);
+
+        // Create a new canvas
+        const canvas = createCanvas(52, 52);
+        const ctx = canvas.getContext('2d', { alpha: true });
+        ctx.imageSmoothingEnabled = false;
+
+        // Create a temp canvas for the foreground
+        const foregroundCanvas = createCanvas(foregroundGifObject.width, foregroundGifObject.height);
+        const foregroundctx = foregroundCanvas.getContext('2d', { alpha: true });
+
+        // Convert Pixel Data to Image Data
+        let foregroundImageData = foregroundctx.createImageData(foregroundGifObject.width, foregroundGifObject.height);
+        foregroundImageData.data.set(foregroundGifObject.data);
+
+        foregroundctx.putImageData(foregroundImageData, 0, 0);
+
+        // Draw background and foreground
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height); // Background
+        ctx.drawImage(foregroundCanvas, 10, 10, 32, 32); // Foreground
+
+        // Add the compiled image to the output gif
+        const outImage = canvas.toDataURL();
+        resolve(outImage);
+    })
+}
+
 
 
 async function overlayImagesFromURL(inputImage1URL, inputImage2URL) {
@@ -131,4 +181,5 @@ async function overlayImagesFromURL(inputImage1URL, inputImage2URL) {
 module.exports = {
     overlayImagesFromURL,
     testOverlay,
+    gifFrameTest,
 };
