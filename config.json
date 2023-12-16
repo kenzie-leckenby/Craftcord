@@ -1,0 +1,12 @@
+{
+    "token" : "InsertTokenHere",
+    "clientID" : "InsertClientIDHere",
+    "guildID" : "InsertServerID",
+    "clientSecret" : "InsertClientSecretHere",
+    "channelID" : "InsertChannelID",
+    "serverIP" : "MinecraftServerIP",
+    "serverPort" : 25565,
+    "rconPort" : 25575,
+    "rconPassword" : "serverPassword",
+    "serverPath" : "LocationOfServerFiles"
+}
