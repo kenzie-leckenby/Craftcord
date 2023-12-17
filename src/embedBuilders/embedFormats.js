@@ -1,7 +1,7 @@
-const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { achievements, backgrounds} = require ('./achievementIconURLs.json')
 const iconCompiler = require('./achievementIconCompiler');
-const path = require('path');
+const DataImageAttachment = require("dataimageattachment");
 
 
 
@@ -28,23 +28,32 @@ function achievement(message) {
       const backgroundImg = backgrounds.find(background => background.name === message.type).iconURL;
       const achievementImg = foundAchievement.iconURL;
 
-      const imagePath = await iconCompiler.overlayImagesFromURL(backgroundImg, achievementImg);
-
-      const attachment = new AttachmentBuilder(imagePath)
+      const imageDataUri = await iconCompiler.overlayImagesFromURL(backgroundImg, achievementImg);
 
       const borderColor = message.type === 'advancement' || message.type === 'goal' ? 'Green' : 'DarkPurple';
 
-      const newEmbed = new EmbedBuilder()
+      let newEmbed;
+      if (achievementImg.substring(achievementImg.length - 3) == 'png') {
+        newEmbed = new EmbedBuilder()
+          .setColor(borderColor)
+          .setTitle(foundAchievement.name)
+          .setAuthor({ name: `${message.username} ${message.body.substring(0, message.body.indexOf('[') - 1)}` })
+          .setDescription(foundAchievement.description)
+          .setThumbnail('attachment://achievement.png');
+        resolve({
+          embeds: [newEmbed],
+          files: [new DataImageAttachment(imageDataUri, {name:"achievement.png"})]
+        });
+      }
+      newEmbed = new EmbedBuilder()
         .setColor(borderColor)
         .setTitle(foundAchievement.name)
         .setAuthor({ name: `${message.username} ${message.body.substring(0, message.body.indexOf('[') - 1)}` })
         .setDescription(foundAchievement.description)
-        .setThumbnail(`attachment://${path.basename(imagePath)}`)
-
-      console.log('Resolving new embed with attachment');
+        .setThumbnail('attachment://achievement.gif');
       resolve({
         embeds: [newEmbed],
-        files: [attachment]
+        files: [new DataImageAttachment(imageDataUri, {name:"achievement.gif"})]
       });
     });
 }
