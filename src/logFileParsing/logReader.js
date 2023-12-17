@@ -1,8 +1,8 @@
 const { serverPath } = require('../../config.json');
 const { vanillaDeathMessages } = require('../embedBuilders/knownDeathMessages.json');
 const EventEmitter = require('events');
-const fs = require('fs');  // Remove the destructuring
-const readline = require('readline');  // Remove the destructuring
+const fs = require('fs');
+const readline = require('readline');
 const path = require('path');
 
 const logFilePath = path.join(serverPath, 'logs/latest.log');
@@ -99,8 +99,9 @@ class LogReader extends EventEmitter {
                     this.emit('latestMessageChanged', output);  // Emit the event with the output
                 }
 
+                // ! Flags a message during startup as an achievement when it isnt
                 // Checks if it is an advancement, challenge, or goal
-                else if (lastLine.indexOf('advancement') != -1 || lastLine.indexOf('challenge') != -1 || lastLine.indexOf('goal') != -1) {
+                else if ((lastLine.indexOf('advancement') != -1 || lastLine.indexOf('challenge') != -1 || lastLine.indexOf('goal') != -1) && lastLine.indexOf('advancements') == -1 ) {
                     const extractedData = lastLine.match(/\[.+?\] \[.+?\]: (.+?) (.+? .+)$/);
                     const username = extractedData[1];
                     const message = extractedData[2];

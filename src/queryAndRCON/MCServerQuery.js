@@ -2,7 +2,7 @@ const util = require('minecraft-server-util');
 const { serverIP, serverPort } =  require('../../config.json')
 
 const options = {
-    timeout: 5000,
+    timeout: 1000,
     enableSRV: true
 };
 
@@ -25,9 +25,9 @@ function checkServerStatus() {
                 outputObj.icon = result.favicon;
                 resolve(outputObj);
             })
-            .catch(error => {
-                console.error(error)
-                reject(error)
+            .catch(() => {
+                console.log('Unable to Query Server, check your IP and Port');
+                resolve(null);
             })
     })
 }

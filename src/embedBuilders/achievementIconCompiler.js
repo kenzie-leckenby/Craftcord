@@ -5,6 +5,7 @@
  * * decode-gif
  * * gif-encoder
  */
+
 const { createCanvas, loadImage } = require('canvas');
 
 const decodeGif = require('decode-gif');

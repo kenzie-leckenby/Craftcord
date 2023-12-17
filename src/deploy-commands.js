@@ -43,4 +43,5 @@ const rest = new REST().setToken(token);
 	}
 })();
 
+// ! Run the line below to deploy any commands written in the cammands folder
 // node src/deploy-commands.js

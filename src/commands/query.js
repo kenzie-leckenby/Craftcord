@@ -18,25 +18,37 @@ module.exports = {
         if (interaction.options.getSubcommand() === 'players') {
             const status = await mcQuery.checkServerStatus();
 
-            const playersEmbed = new EmbedBuilder()
+            if (status != null) { // Runs on succesful query
+                const playersEmbed = new EmbedBuilder()
                 .setColor('Blue')
                 .addFields(
                     { name: 'Player Count', value: `${status.online}/${status.maxPlayers}`},
-                    { name: 'Players', value: status.playersOnList}
-                )
-            await interaction.reply({embeds: [playersEmbed], ephemeral: true });
+                    { name: 'Players', value: status.playersOnList});
+                await interaction.reply({embeds: [playersEmbed], ephemeral: true });
+            } else { // Runs if the server is offline
+                const playersEmbed = new EmbedBuilder()
+                .setColor('Red')
+                .setAuthor({name: 'Could Not Ping Server'});
+                await interaction.reply({embeds: [playersEmbed], ephemeral: true });
+            }
         } else if (interaction.options.getSubcommand() === 'info') {
             const status = await mcQuery.checkServerStatus();
 
-            const statusEmbed = new EmbedBuilder()
+            if(status != null) {
+                const statusEmbed = new EmbedBuilder()
                 .setColor('Blue')
                 .setTitle(`${status.motd} Status`)
                 .setThumbnail('attachment://servericon.png')
                 .addFields(
                     { name: 'Version', value: `${status.currentVersion}`, inline: true},
-                    { name: 'Players', value: `${status.online}/${status.maxPlayers}`, inline: true}
-                )
-            await interaction.reply({embeds: [statusEmbed], files: [new DataImageAttachment(status.icon, {name:"servericon.png"})], ephemeral: true });
+                    { name: 'Players', value: `${status.online}/${status.maxPlayers}`, inline: true});
+                await interaction.reply({embeds: [statusEmbed], files: [new DataImageAttachment(status.icon, {name:"servericon.png"})], ephemeral: true });
+            } else {
+                const statusEmbed = new EmbedBuilder()
+                .setColor('Red')
+                .setAuthor({name: 'Could Not Ping Server'});
+                await interaction.reply({embeds: [statusEmbed], ephemeral: true });
+            }
         }
     },
 };

@@ -13,6 +13,12 @@ function tellrawFormatter(messageBody, username = undefined) {
 class mcRCON {
     constructor(ip = 'localhost', rconPort = 25565, rconPassword = '') {
         this.conn = new Rcon(ip, rconPort, rconPassword);
+        this.conn.on('auth', () => {
+            console.log('RCON Connected')
+        }).on('error', () => {
+            console.log('RCON Unable to Connect, Check RCON port and IP');
+        });
+
         this.conn.connect();
     }
 
