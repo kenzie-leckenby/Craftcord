@@ -1,12 +1,20 @@
 {
   "name": "discord-bot",
   "version": "0.9.0",
-  "description": "A discord bot that reads a .log file to output minecraft messages to discord and reads discord messages to send them in minecraft",
+  "description": "A Discord bot that aims to facilitate a seamless integration between Discord and Minecraft chats",
+  "repository": "https://github.com/kenzie-leckenby/Craftcord",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "canvas": "^2.11.2",
+    "decode-gif":"^1.0.1",
+    "gif-encoder": "^0.7.2",
+    "node-fetch": "^3.3.2",
+    "rcon": "^1.1.0",
+    "dataimageattachment": "^2.0.0",
+    "minecraft-server-util": "^5.4.4"
   },
-  "keywords": [],
+  "keywords": ["Discord", "Minecraft", "Chat Integration"],
   "author": "Kenzie Leckenby",
-  "license": "MIT License"
+  "license": "MIT"
 }
