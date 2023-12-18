@@ -6,9 +6,12 @@ const options = {
     enableSRV: true
 };
 
-// This will work for any minecraft server version at or above version 1.7.2
+/**
+ * works for any minecraft server version at or above version 1.7.2
+ * @returns an object containing motd, currentVersion, maxPlayers, online, playersOnList, and icon. If unable to query it returns null,
+ */
 function checkServerStatus() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const outputObj = {}
         util.status(serverIP, serverPort, options)
             .then(result => {

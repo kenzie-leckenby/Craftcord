@@ -1,6 +1,11 @@
 let Rcon  = require('rcon');
 
-// Converts messages into the tellraw syntax Minecraft uses
+/**
+ * Converts messages into the tellraw syntax Minecraft uses
+ * @param messageBody
+ * @param username
+ * @returns a formatted tellraw command
+ */
 function tellrawFormatter(messageBody, username = undefined) {
     if (username === undefined) {
         return `/tellraw @a ["", {"text":"[Discord]", "color":"blue"}, " ${messageBody}"]`;
@@ -22,7 +27,11 @@ class mcRCON {
         this.conn.connect();
     }
 
-    // Sends a message through the Minecraft console using RCON with tellraw formatting
+    /**
+     * Sends a message through the Minecraft console using RCON with tellraw formatting
+     * @param messageContent
+     * @param author
+     */
     sendMessage(messageContent, author) {
         this.conn.send(tellrawFormatter(messageContent, author));
     }

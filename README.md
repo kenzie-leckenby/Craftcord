@@ -1,8 +1,8 @@
 # Craftcord
-Craftcord is a bot designed to facilitate a seamless integration between a Discord and Minecraft chat while also providing other utility features. 
+Craftcord is a bot designed to facilitate a seamless integration between a Discord and Minecraft chat while also providing other utility features.
 
 ## Features
-### Seamless messaging between discord ane minecraft chats
+### Seamless messaging between discord and minecraft chats
 ![image](https://github.com/kenzie-leckenby/Craftcord/assets/58910948/d35396ca-74f5-4a83-8517-7c7c2617874f)
 
 ### Embedded Leave, Join, and Death Messages
@@ -18,7 +18,7 @@ Craftcord is a bot designed to facilitate a seamless integration between a Disco
   - ![image](https://github.com/kenzie-leckenby/Craftcord/assets/58910948/727a8263-aa98-4377-bb7e-ca55cce16bd7)
 - /server info
   - ![image](https://github.com/kenzie-leckenby/Craftcord/assets/58910948/e47eead4-2fb3-4e1f-bf11-76adfc1965bf)
- 
+
 
 
 
