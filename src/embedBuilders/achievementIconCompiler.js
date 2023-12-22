@@ -10,7 +10,6 @@ const { createCanvas, loadImage } = require('canvas');
 
 const decodeGif = require('decode-gif');
 const GifEncoder = require('gif-encoder');
-const fetch = require('node-fetch');
 
 /**
  * @param backgroundImageUrl accepts any image file
@@ -23,10 +22,10 @@ async function overlayImagesFromURL(backgroundImageUrl, foregroundImageUrl) {
         // ! Update code to remove the use of async in a promise statement
         return new Promise (async (resolve, reject) => {
             // Fetches and loads the background then the foreground image
-            const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {reject(new Error(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`)); return;}
+            const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {console.log(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`); return;}
             const backgroundImage = await loadImage(await backgroundImageFetch.buffer());
 
-            const foregroundGifFetch = await fetch(foregroundImageUrl); !foregroundGifFetch.ok && reject(new Error(`Failed to fetch the foreground image: ${foregroundGifFetch.statusText}`)); // * Not the issue
+            const foregroundGifFetch = await fetch(foregroundImageUrl); if (!foregroundGifFetch.ok) {console.log(`Failed to fetch the foreground image: ${foregroundGifFetch.statusText}`); return;}
             const foregroundGifObject = decodeGif(await foregroundGifFetch.buffer());
 
             let gif = new GifEncoder(52, 52, {

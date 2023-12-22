@@ -34,6 +34,7 @@ const mcChat = new mcRCON(undefined, rconPort, rconPassword);
 
 // Run Scripts When the Bot Starts
 client.on(Events.ClientReady, () => {
+  console.log('Bot Started')
   const logReader = new LogReader();
   logReader.on('latestMessageChanged', (output) => {
     // Channel to Send Messages in
@@ -81,4 +82,5 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.login(token);
+
 
