@@ -2,7 +2,8 @@ const { Client, GatewayIntentBits, EmbedBuilder, Collection, Events} = require('
 const { token, rconPort, rconPassword, channelID } = require('../config.json');
 const { mcRCON } = require('./queryAndRCON/mcRCON.js');
 const { LogReader } = require('./logFileParsing/logReader.js');
-const embeds = require('./embedBuilders/embedFormats.js')
+const log = require('./logs/logWriter.js');
+const embeds = require('./embedBuilders/embedFormats.js');
 const path = require('path');
 const fs = require('fs');
 
@@ -30,11 +31,13 @@ for (const file of commandsFile) {
   }
 }
 
+const date = new Date();
+
 const mcChat = new mcRCON(undefined, rconPort, rconPassword);
 
 // Run Scripts When the Bot Starts
 client.on(Events.ClientReady, () => {
-  console.log('Bot Started')
+  log.write('co', 'Console', 'Bot Started');
   const logReader = new LogReader();
   logReader.on('latestMessageChanged', (output) => {
     // Channel to Send Messages in
@@ -42,10 +45,10 @@ client.on(Events.ClientReady, () => {
 
     // Switch Between Different Message Types
     switch (output.type) {
-      case 'chat': channel.send(`${output.username}: ${output.body}`); break;
+      case 'chat': channel.send(`${output.username}: ${output.body}`); log.write('mc', output.username, output.body); break;
       case 'playerJoin':
       case 'playerLeave':
-      case 'death': channel.send(embeds.event(output)); break;
+      case 'death': channel.send(embeds.event(output)); log.write('mc', output.username, output.body); break;
       default:
         (async () => {
           const embedMsg = await embeds.achievement(output);
@@ -57,8 +60,9 @@ client.on(Events.ClientReady, () => {
 
 // When a user sends a message in chat
 client.on(Events.MessageCreate, (msg) => {
-  if (msg.channel.id === channelID) {
-    msg.author.bot == false && mcChat.sendMessage(msg.content, msg.author.displayName);
+  if (msg.channel.id === channelID && !msg.author.bot) {
+    mcChat.sendMessage(msg.content, msg.author.displayName);
+    log.write('dc', msg.author.displayName, msg.content);
   }
 });
 

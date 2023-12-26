@@ -1,13 +1,12 @@
 /**
  * ! Dependencies
  * * canvas
- * * node-fetch
  * * decode-gif
  * * gif-encoder
  */
 
 const { createCanvas, loadImage } = require('canvas');
-
+const log = require('../logs/logWriter.js');
 const decodeGif = require('decode-gif');
 const GifEncoder = require('gif-encoder');
 
@@ -22,11 +21,13 @@ async function overlayImagesFromURL(backgroundImageUrl, foregroundImageUrl) {
         // ! Update code to remove the use of async in a promise statement
         return new Promise (async (resolve, reject) => {
             // Fetches and loads the background then the foreground image
-            const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {console.log(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`); return;}
-            const backgroundImage = await loadImage(await backgroundImageFetch.buffer());
+            const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {log.write('er', 'Error', `Failed to fetch the background image: ${backgroundImageFetch.statusText}`); return;}
+            const backgroundImageArrayBuffer = await backgroundImageFetch.arrayBuffer();
+            const backgroundImage = await loadImage(Buffer.from(backgroundImageArrayBuffer));
 
-            const foregroundGifFetch = await fetch(foregroundImageUrl); if (!foregroundGifFetch.ok) {console.log(`Failed to fetch the foreground image: ${foregroundGifFetch.statusText}`); return;}
-            const foregroundGifObject = decodeGif(await foregroundGifFetch.buffer());
+            const foregroundGifFetch = await fetch(foregroundImageUrl); if (!foregroundGifFetch.ok) {log.write('er', 'Error', `Failed to fetch the foreground gif: ${backgroundImageFetch.statusText}`); return;}
+            const foregroundGifArrayBuffer = await foregroundGifFetch.arrayBuffer();
+            const foregroundGifObject = decodeGif(Buffer.from(foregroundGifArrayBuffer));
 
             let gif = new GifEncoder(52, 52, {
                 highWaterMark: 5 * 1024 * 1024 // Sets the buffer size to 5 mbs
@@ -85,12 +86,14 @@ async function overlayImagesFromURL(backgroundImageUrl, foregroundImageUrl) {
         const ctx = canvas.getContext('2d');
         ctx.imageSmoothingEnabled = false;
 
-        return new Promise (async (resolve, reject) => {
+        return new Promise (async (resolve) => {
             // Fetches and loads the background then the foreground image
-            const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {reject(new Error(`Failed to fetch the background image: ${backgroundImageFetch.statusText}`)); return;}
-            const backgroundImage = await loadImage(await backgroundImageFetch.buffer());
-            const foregroundImageFetch = await fetch(foregroundImageUrl); if (!foregroundImageFetch.ok) {reject(new Error(`Failed to fetch the background image: ${foregroundImageFetch.statusText}`)); return;}
-            const foregroundImage = await loadImage(await foregroundImageFetch.buffer());
+            const backgroundImageFetch = await fetch(backgroundImageUrl); if (!backgroundImageFetch.ok) {log.write('er', 'Error', `Failed to fetch the background image: ${backgroundImageFetch.statusText}`); return;}
+            const backgroundImageArrayBuffer = await backgroundImageFetch.arrayBuffer();
+            const backgroundImage = await loadImage(Buffer.from(backgroundImageArrayBuffer));
+            const foregroundImageFetch = await fetch(foregroundImageUrl); if (!foregroundImageFetch.ok) {log.write('er', 'Error', `Failed to fetch the foreground image: ${backgroundImageFetch.statusText}`); return;}
+            const foregroundImageArrayBuffer = await foregroundImageFetch.arrayBuffer();
+            const foregroundImage = await loadImage(Buffer.from(foregroundImageArrayBuffer));
 
             // Draws the images to the canvas
             ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);

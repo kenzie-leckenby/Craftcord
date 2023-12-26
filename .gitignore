@@ -1,1 +1,6 @@
+# User Dependent
 config.json
+src/logs/log.txt
+
+# HUGE FILE
+node_modules/

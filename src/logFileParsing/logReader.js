@@ -53,7 +53,7 @@ class LogReader extends EventEmitter {
                 // Checks if it is a chat message
                 if (lastLine.indexOf('<') != -1) {
                     const username = lastLine.substring(lastLine.indexOf('<') + 1, lastLine.indexOf('>'));
-                    const message = lastLine.substring(lastLine.indexOf('>') + 1);
+                    const message = lastLine.substring(lastLine.indexOf('>') + 2);
                     output = {
                         username: username,
                         body: message,
@@ -110,8 +110,7 @@ class LogReader extends EventEmitter {
                     const extractedData = lastLine.match(/\[.+?\] \[.+?\]: (.+?) (.+? .+)$/);
                     const username = extractedData[1];
                     const message = extractedData[2];
-                    const type = lastLine.indexOf('advancement') != -1 ? 'advancement' : (lastLine.indexOf('challenge') != -1 ? 'challenge' : 'goal');  // Fix the type condition
-                    console.log(`Extracted Data: ${extractedData[1]} username: ${username}`)
+                    const type = lastLine.indexOf('advancement') != -1 ? 'advancement' : (lastLine.indexOf('challenge') != -1 ? 'challenge' : 'goal');
                     output = {
                         username: username,
                         body: message,

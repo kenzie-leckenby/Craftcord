@@ -110,11 +110,22 @@ body {
 
 .dc-author {
     color: #7f88f0;
+    font-size: large;
+}
+
+.co-author {
+    color: #e6a34a;
+    font-size: large;
+}
+
+.er-author {
+    color: #e6515b;
+    font-size: large;
 }
 
 .message-body {
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: -4px;
 
     line-height: 22px;
 }
