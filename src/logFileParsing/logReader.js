@@ -4,6 +4,7 @@ const EventEmitter = require('events');
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
+const log = require('../logs/logWriter.js');
 
 const logFilePath = path.join(serverPath, 'logs/latest.log');
 
@@ -49,9 +50,8 @@ class LogReader extends EventEmitter {
                 }
 
                 // !TODO Potentially Change Output Objects to have {author: "", body: "", type: ""}
-
                 // Checks if it is a chat message
-                if (lastLine.indexOf('<') != -1) {
+                if (lastLine.indexOf('<') != -1 && lastLine.indexOf('>') != -1) {
                     const username = lastLine.substring(lastLine.indexOf('<') + 1, lastLine.indexOf('>'));
                     const message = lastLine.substring(lastLine.indexOf('>') + 2);
                     output = {

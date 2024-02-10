@@ -2,11 +2,12 @@ const fs = require('fs');
 const readline = require('readline');
 
 const consoleWindow = document.getElementById('console');
+const statusIcon = document.getElementById('status-icon')
 
 function writeToConsole(messageObj) {
     const date = messageObj.date.replaceAll('.', '/');
     let hour = parseInt(messageObj.time.substring(0, 2));
-    const minutes = parseInt(messageObj.time.substring(3, 5));
+    const minutes = messageObj.time.substring(3, 5);
     let timeID = 'AM';
     if (hour >= 12) {
         timeID = 'PM';
@@ -15,6 +16,11 @@ function writeToConsole(messageObj) {
         hour = 12;
     }
     const timestamp = `${hour}:${minutes} ${timeID}`;
+    if (messageObj.author === 'Console' && messageObj.body === 'Bot Started') {
+        statusIcon.innerHTML = `<i class="fa-solid fa-genderless fa-2xl status-color-green"></i>`;
+    } else if (messageObj.author === 'Error') {
+        statusIcon.innerHTML = `<i class="fa-solid fa-genderless fa-2xl status-color-red"></i>`;
+    }
     consoleWindow.innerHTML += `<div><div class="message-info"><span class="text-margin ${messageObj.source}-author">${messageObj.author}</span><span class="text-margin timestamp">${date} ${timestamp}</span></div><p class="message-body">${messageObj.body}</p></div>`;
 }
 
@@ -77,5 +83,5 @@ function startLogWatcher() {
 }
 startLogWatcher();
 
-/*
-*/
+
+

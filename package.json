@@ -1,5 +1,5 @@
 {
-  "name": "discord-bot",
+  "name": "craftcord",
   "version": "0.9.0",
   "description": "A Discord bot that aims to facilitate a seamless integration between Discord and Minecraft chats",
   "repository": "https://github.com/kenzie-leckenby/Craftcord",
@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron app/main.js"
   },
-  "dependencies": {
+    "dependencies": {
     "canvas": "^2.11.2",
     "dataimageattachment": "^2.0.0",
     "decode-gif": "^1.0.1",

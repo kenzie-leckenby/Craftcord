@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, EmbedBuilder, Collection, Events} = require('discord.js');
+const { Client, GatewayIntentBits, Collection, Events} = require('discord.js');
 const { token, rconPort, rconPassword, channelID } = require('../config.json');
 const { mcRCON } = require('./queryAndRCON/mcRCON.js');
 const { LogReader } = require('./logFileParsing/logReader.js');
@@ -30,8 +30,6 @@ for (const file of commandsFile) {
     console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
   }
 }
-
-const date = new Date();
 
 const mcChat = new mcRCON(undefined, rconPort, rconPassword);
 
@@ -76,7 +74,6 @@ client.on(Events.InteractionCreate, async interaction => {
 	try {
 		await command.execute(interaction);
 	} catch (error) {
-		console.error(error);
 		if (interaction.replied || interaction.deferred) {
 			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
 		} else {

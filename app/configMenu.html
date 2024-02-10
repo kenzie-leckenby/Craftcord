@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/b57dc0fa81.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="styles.css">
+
+        <title>Craftcord</title>
+        <link rel="icon" type="image/png" sizes="1200x1200" href="../logo.png">
+    </head>
+    <body>
+        <div class="window-container">
+            <div class="nav-buttons">
+                <div class="left-align">
+                    <div id="console-button" class="tab-theme-closed">
+                        Console
+                    </div>
+                </div>
+                <div class="right-align">
+                    <div id="status-icon">
+                       <i class="fa-solid fa-genderless fa-2xl status-color-red"></i>
+                    </div>
+                    <div id="theme-button" class="button-theme">
+                        <i class="fa-solid fa-moon fa-2xl"></i>
+                    </div>
+                    <div id="settings-button" class="button-theme">
+                        <i class="fa-solid fa-gear fa-2xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="config-menu" class="page-open">
+                <div class="flex">
+                    <div class="tags">
+                        <div class="tag">Token</div>
+                        <div class="tag">Client ID</div>
+                        <div class="tag">Client Secret</div>
+                        <div class="tag">Guild ID</div>
+                        <div class="tag">Channel ID</div>
+                        <div class="tag">Server IP</div>
+                        <div class="tag">Server Port</div>
+                        <div class="tag">RCON Port</div>
+                        <div class="tag">RCON Password</div>
+                    </div>
+                    <div class="inputs">
+                        <input id="token" class="input" type="text">
+                        <input id="clientiD" class="input" type="text">
+                        <input id="clientSecret" class="input" type="text">
+                        <input id="guildID" class="input" type="text">
+                        <input id="channelID" class="input" type="text">
+                        <input id="serverIP" class="input" type="text">
+                        <input id="serverPort" class="input" type="text">
+                        <input id="rconPort" class="input" type="text">
+                        <input id="rconPassword" class="input" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="appScripts.js"></script>
+    </body>
+</html>
