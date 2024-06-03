@@ -12,20 +12,10 @@ function timestamp() {
  */
 function write(source, author, messageBody) {
     const logLine = `${timestamp()} ${source} (${author}) "${messageBody}"\n`;
-    fs.writeFile('src/logs/log.txt', logLine, { flag: 'a'}, (err) => {
-    });
-}
-
-/**
- * Sends a closing message to the log file
- */
-function close() {
-    const logLine = `${timestamp()} co (Console) "Bot Shutting Down"\n`;
-    fs.writeFile('src/logs/log.txt', logLine, { flag: 'a'}, (err) => {
-    });
+    console.log(logLine);
+    fs.writeFile('src/logs/log.txt', logLine, { flag: 'a'}, (err) => {});
 }
 
 module.exports = {
     write,
-    close,
 }

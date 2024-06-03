@@ -5,7 +5,7 @@
   "repository": "https://github.com/kenzie-leckenby/Craftcord",
   "main": "app/main.js",
   "scripts": {
-    "start": "electron app/main.js"
+    "start": "node src/index.js"
   },
     "dependencies": {
     "canvas": "^2.11.2",
