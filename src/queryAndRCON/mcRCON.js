@@ -23,6 +23,8 @@ class mcRCON {
             log.write('co', 'Console', 'RCON Connected');
         }).on('error', () => {
             log.write('er', 'Error', 'RCON Unable to Connect, Check RCON port and IP');
+            log.write('er', 'Error', 'Will Attempt Reconnect')
+            this.conn.connect();
         });
 
         this.conn.connect();

@@ -1,5 +1,6 @@
 const util = require('minecraft-server-util');
 const { serverIP, serverPort } =  require('../../config.json')
+const log = require('../logs/logWriter.js');
 
 const options = {
     timeout: 1000,
@@ -29,7 +30,7 @@ function checkServerStatus() {
                 resolve(outputObj);
             })
             .catch(() => {
-                console.log('Unable to Query Server, check your IP and Port');
+                log.write('co', 'Console', 'Unable to Query Server, check your IP and Port');
                 resolve(null);
             })
     })
